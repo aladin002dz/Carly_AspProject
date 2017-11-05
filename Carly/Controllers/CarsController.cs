@@ -6,46 +6,38 @@ using System.Web.Mvc;
 using Carly.Models;
 using Carly.ViewModels;
 
+
 namespace Carly.Controllers
 {
     public class CarsController : Controller
     {
-        // GET: Cars
-        public ActionResult Random()
+        private ApplicationDbContext _context;
+        public CarsController()
         {
-            Car car = new Car() { Name = "Mustang"};
+            _context = new ApplicationDbContext();
+        }
 
-            var customers = new List<Customer>
-            {
-                new Customer { Name = "Customer1" },
-                new Customer { Name = "Customer2" }
-            };
-
-            var viewModel = new RandomCarViewModel
-            {
-                Car = car,
-                Customers = customers
-            };
-
-            return View(viewModel);
-            //return Content("Hello World!");
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
         }
 
         public ActionResult Index()
         {
 
-            var cars = GetCars();
+            var cars = _context.Cars.ToList();
 
             return View(cars);
         }
 
-        private IEnumerable<Car> GetCars()
+        public ActionResult Details(int id)
         {
-            return new List<Car>
-            {
-                new Car { Id = 1, Name = "Mustang" },
-                new Car { Id = 2, Name = "Kamaro" }
-            };
+            var car = _context.Cars.ToList().SingleOrDefault(c => c.Id == id);
+
+            if (car == null)
+                return HttpNotFound();
+
+            return View(car);
         }
 
         public ActionResult Edit(int id)

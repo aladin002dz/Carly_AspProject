@@ -223,6 +223,30 @@
     <Compile Include="Migrations\201711012148401_AddAnnotationsToCustomerName.Designer.cs">
       <DependentUpon>201711012148401_AddAnnotationsToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711051910056_addNameToMembershipType.cs" />
+    <Compile Include="Migrations\201711051910056_addNameToMembershipType.Designer.cs">
+      <DependentUpon>201711051910056_addNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711052002270_addNamesToMembershipTypes.cs" />
+    <Compile Include="Migrations\201711052002270_addNamesToMembershipTypes.Designer.cs">
+      <DependentUpon>201711052002270_addNamesToMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711052016098_addBirthdayToCustomer.cs" />
+    <Compile Include="Migrations\201711052016098_addBirthdayToCustomer.Designer.cs">
+      <DependentUpon>201711052016098_addBirthdayToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711052034467_addCarsToDB.cs" />
+    <Compile Include="Migrations\201711052034467_addCarsToDB.Designer.cs">
+      <DependentUpon>201711052034467_addCarsToDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711052042406_addAgainCarsTable.cs" />
+    <Compile Include="Migrations\201711052042406_addAgainCarsTable.Designer.cs">
+      <DependentUpon>201711052042406_addAgainCarsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711052055463_addYearToCarModel.cs" />
+    <Compile Include="Migrations\201711052055463_addYearToCarModel.Designer.cs">
+      <DependentUpon>201711052055463_addYearToCarModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Car.cs" />
@@ -301,6 +325,7 @@
     <Content Include="Views\Cars\Index.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Cars\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -328,6 +353,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711012148401_AddAnnotationsToCustomerName.resx">
       <DependentUpon>201711012148401_AddAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711051910056_addNameToMembershipType.resx">
+      <DependentUpon>201711051910056_addNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711052002270_addNamesToMembershipTypes.resx">
+      <DependentUpon>201711052002270_addNamesToMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711052016098_addBirthdayToCustomer.resx">
+      <DependentUpon>201711052016098_addBirthdayToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711052034467_addCarsToDB.resx">
+      <DependentUpon>201711052034467_addCarsToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711052042406_addAgainCarsTable.resx">
+      <DependentUpon>201711052042406_addAgainCarsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711052055463_addYearToCarModel.resx">
+      <DependentUpon>201711052055463_addYearToCarModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

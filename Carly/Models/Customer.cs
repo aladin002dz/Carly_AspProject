@@ -15,5 +15,6 @@ namespace Carly.Models
         public bool IsSubsribedToNewsLetter { get; set; }
         public MembershipType  MembershipType { get; set; }
         public byte MembershipTypeId { get; set; }
+        public DateTime Birthday { get; set; }
     }
 }
