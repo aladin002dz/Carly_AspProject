@@ -38,7 +38,7 @@ namespace Carly.Controllers
                 MembershipTypes = memberShipTypes
             };
 
-            return View(viewModel);
+            return View("CustomerForm", viewModel);
         }
 
         [HttpPost]
