@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using Carly.Models;
+using Carly.ViewModels;
 
 namespace Carly.Controllers
 {
@@ -21,12 +22,31 @@ namespace Carly.Controllers
         {
             _context.Dispose();
         }
-        // GET: Customers
+
         public ActionResult Index()
         {
             var customers = _context.Customers.Include(c => c.MembershipType).ToList();
 
             return View(customers);
+        }
+
+        public ActionResult New()
+        {
+            var memberShipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new NewCustomerViewModel
+            {
+                MembershipTypes = memberShipTypes
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Create(Customer customer)
+        {
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
+            return RedirectToAction("Index","Customers");
         }
 
         public ActionResult Details(int id)
