@@ -6,6 +6,10 @@
 
 <h2>Customers</h2>
 
+<p>
+    @Html.ActionLink("New", "New", "Customers", null, new { @class = "btn btn-primary btn-large" })
+</p>
+
 @if (!Model.Any())
 {
     <p>No one has rented this car before</p>

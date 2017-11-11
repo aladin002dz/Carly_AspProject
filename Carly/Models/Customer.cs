@@ -10,7 +10,7 @@ namespace Carly.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Please Enter Customer Name")]
         [StringLength(255)]
         public string Name { get; set; }
 
@@ -22,6 +22,7 @@ namespace Carly.Models
         public byte MembershipTypeId { get; set; }
 
         [Display(Name = "Date of Birth")]
-        public DateTime Birthday { get; set; }
+        [Min18YearsIfAMember]
+        public DateTime? Birthday { get; set; }
     }
 }

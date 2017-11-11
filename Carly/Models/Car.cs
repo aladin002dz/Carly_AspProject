@@ -10,6 +10,7 @@ namespace Carly.Models
     {
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Please Enter Car Name")]
         public string Name { get; set; }
 
         public Manufacturer Manufacturer { get; set; }
@@ -21,6 +22,7 @@ namespace Carly.Models
         public int Year { get; set; }
 
         [Display(Name = "Number Available")]
+        [CarsNumberValidation]
         public int NumberAvailable { get; set; }
     }
 }

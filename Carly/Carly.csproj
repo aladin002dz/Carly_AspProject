@@ -271,14 +271,28 @@
     <Compile Include="Migrations\201711072004139_addManufacturerToCarModel.Designer.cs">
       <DependentUpon>201711072004139_addManufacturerToCarModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711081850065_addBirthdateValidation.cs" />
+    <Compile Include="Migrations\201711081850065_addBirthdateValidation.Designer.cs">
+      <DependentUpon>201711081850065_addBirthdateValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711081854296_addBirthdateValidation2.cs" />
+    <Compile Include="Migrations\201711081854296_addBirthdateValidation2.Designer.cs">
+      <DependentUpon>201711081854296_addBirthdateValidation2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711111051189_addRequirementNameInCarModel.cs" />
+    <Compile Include="Migrations\201711111051189_addRequirementNameInCarModel.Designer.cs">
+      <DependentUpon>201711111051189_addRequirementNameInCarModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\CarsNumberValidation.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Manufacturer.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CarFormViewModel.cs" />
@@ -418,6 +432,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711072004139_addManufacturerToCarModel.resx">
       <DependentUpon>201711072004139_addManufacturerToCarModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711081850065_addBirthdateValidation.resx">
+      <DependentUpon>201711081850065_addBirthdateValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711081854296_addBirthdateValidation2.resx">
+      <DependentUpon>201711081854296_addBirthdateValidation2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711111051189_addRequirementNameInCarModel.resx">
+      <DependentUpon>201711111051189_addRequirementNameInCarModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

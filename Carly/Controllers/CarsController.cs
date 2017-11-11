@@ -43,8 +43,20 @@ namespace Carly.Controllers
 
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Car car)
         {
+            ModelState["car.Id"].Errors.Clear();
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new CarFormViewModel
+                {
+                    Car = car,
+                    Manufacturers = _context.Manufacturers.ToList()
+                };
+                return View("CarForm", viewModel);
+                //var errors = ModelState.Values.SelectMany(v => v.Errors);
+            }
             if (car.Id == 0)
                 _context.Cars.Add(car);
             else
@@ -73,15 +85,15 @@ namespace Carly.Controllers
         public ActionResult Edit(int id)
         {
             var car = _context.Cars.SingleOrDefault(c => c.Id == id);
-            var manufacturers = _context.Manufacturers.ToList();
+            //var manufacturers = _context.Manufacturers.ToList();
             if (car == null)
                 return HttpNotFound();
 
             var viewModel = new CarFormViewModel
             {
                 Car = car,
-                Manufacturers = manufacturers
-            };
+                Manufacturers = _context.Manufacturers.ToList()
+        };
 
             return View("CarForm", viewModel);
         }
