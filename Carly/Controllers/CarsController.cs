@@ -25,12 +25,12 @@ namespace Carly.Controllers
 
         public ActionResult Index()
         {
-
-            var cars = _context.Cars.ToList();
-
-            return View(cars);
+            if(User.IsInRole(RoleName.CanManageCars))
+                return View("List");
+            return View("ReadOnlyList");
         }
 
+        [Authorize(Roles = RoleName.CanManageCars)]
         public ActionResult New()
         {
             var manufacturers = _context.Manufacturers.ToList();
