@@ -13,9 +13,14 @@ namespace Carly.App_Start
         public MappingProfile()
         {
             Mapper.CreateMap<Customer, CustomerDto>();
-            Mapper.CreateMap<CustomerDto, Customer>();
             Mapper.CreateMap<Car, CarDto>();
-            Mapper.CreateMap<CarDto, Car>();
+            Mapper.CreateMap<MembershipType, MembershipTypeDto>();
+            Mapper.CreateMap<Manufacturer, ManufacturerDto>();
+
+            Mapper.CreateMap<CustomerDto, Customer>()
+                .ForMember(c => c.Id, opt => opt.Ignore());
+            Mapper.CreateMap<CarDto, Car>()
+                .ForMember(c => c.Id, opt => opt.Ignore());
         }
     }
 }

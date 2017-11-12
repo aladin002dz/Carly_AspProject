@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Carly.Models;
 using Carly.ViewModels;
+using System.Data.Entity;
 
 
 namespace Carly.Controllers
@@ -84,7 +85,7 @@ namespace Carly.Controllers
 
         public ActionResult Edit(int id)
         {
-            var car = _context.Cars.SingleOrDefault(c => c.Id == id);
+            var car = _context.Cars.Include(c => c.Manufacturer).ToList().SingleOrDefault(c => c.Id == id);
             //var manufacturers = _context.Manufacturers.ToList();
             if (car == null)
                 return HttpNotFound();

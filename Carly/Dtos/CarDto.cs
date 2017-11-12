@@ -17,6 +17,8 @@ namespace Carly.Dtos
 
         public byte ManufacturerId { get; set; }
 
+        public ManufacturerDto Manufacturer { get; set; }
+
         public int Year { get; set; }
 
         //[CarsNumberValidation]

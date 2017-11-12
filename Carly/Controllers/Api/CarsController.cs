@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Data.Entity;
 using Carly.Models;
 using Carly.Dtos;
 using AutoMapper;
@@ -22,7 +23,7 @@ namespace Carly.Controllers.Api
         //Get api/cars
         public IEnumerable<CarDto> GetCars()
         {
-            return _context.Cars.ToList().Select(Mapper.Map<Car, CarDto>);
+            return _context.Cars.Include(c => c.Manufacturer).ToList().Select(Mapper.Map<Car, CarDto>);
         }
 
         //Get api/cutomers/1

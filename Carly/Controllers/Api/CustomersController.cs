@@ -7,6 +7,7 @@ using System.Web.Http;
 using Carly.Models;
 using Carly.Dtos;
 using AutoMapper;
+using System.Data.Entity;
 
 namespace Carly.Controllers.Api
 {
@@ -22,7 +23,10 @@ namespace Carly.Controllers.Api
         //Get api/customers
         public IEnumerable<CustomerDto> GetCustomers()
         {
-            return _context.Customers.ToList().Select(Mapper.Map<Customer, CustomerDto>);
+            return _context.Customers
+                .Include(c => c.MembershipType)
+                .ToList()
+                .Select(Mapper.Map<Customer, CustomerDto>);
         }
 
         //Get api/cutomers/1
