@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Carly.Models;
+using System.Configuration;
 
 namespace Carly
 {
@@ -54,10 +55,13 @@ namespace Carly
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            app.UseFacebookAuthentication(
-               appId: "368276273626830",
-               appSecret: "d61df560ab2274f9326b9bb1e97a53fc");
+            //app.UseFacebookAuthentication(
+            //   appId: "368276273626830",
+            //   appSecret: "d61df560ab2274f9326b9bb1e97a53fc");
 
+            app.UseFacebookAuthentication(
+               appId: ConfigurationManager.AppSettings["FacebookId"] ,
+               appSecret: ConfigurationManager.AppSettings["FacebookSecret"] );
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
             //    ClientId = "",
