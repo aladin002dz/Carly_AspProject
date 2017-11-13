@@ -21,9 +21,17 @@ namespace Carly.Controllers.Api
         }
 
         //Get api/cars
-        public IEnumerable<CarDto> GetCars()
+        public IHttpActionResult GetCars(string query = null)
         {
-            return _context.Cars.Include(c => c.Manufacturer).ToList().Select(Mapper.Map<Car, CarDto>);
+            var carsQuery = _context.Cars
+                .Include(c => c.Manufacturer);
+            if (!String.IsNullOrWhiteSpace(query))
+                carsQuery = carsQuery.Where(c => c.Name.Contains(query));
+
+            var carsDto = carsQuery
+                .ToList()
+                .Select(Mapper.Map<Car, CarDto>);
+            return Ok(carsDto);
         }
 
         //Get api/cutomers/1
@@ -37,6 +45,7 @@ namespace Carly.Controllers.Api
 
         //Post api/Cars
         [HttpPost]
+        [Authorize(Roles = RoleName.CanManageCars)]
         public IHttpActionResult CreateCar(CarDto carDto)
         {
             if (!ModelState.IsValid)
@@ -54,6 +63,7 @@ namespace Carly.Controllers.Api
 
         //Put api/cars/1
         [HttpPut]
+        [Authorize(Roles = RoleName.CanManageCars)]
         public void UpdateCar(int id, CarDto carDto)
         {
             if (!ModelState.IsValid)
@@ -70,6 +80,7 @@ namespace Carly.Controllers.Api
 
         //Delete api/cars/1
         [HttpDelete]
+        [Authorize(Roles = RoleName.CanManageCars)]
         public void DeleteCar(int id)
         {
             var carInDb = _context.Cars.FirstOrDefault(c => c.Id == id);

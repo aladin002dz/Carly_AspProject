@@ -21,12 +21,17 @@ namespace Carly.Controllers.Api
         }
 
         //Get api/customers
-        public IEnumerable<CustomerDto> GetCustomers()
+        public IHttpActionResult GetCustomers(string query = null)
         {
-            return _context.Customers
-                .Include(c => c.MembershipType)
+            var customersQuery = _context.Customers
+                .Include(c => c.MembershipType);
+            if (!String.IsNullOrWhiteSpace(query))
+                customersQuery = customersQuery.Where(c => c.Name.Contains(query));
+
+            var customersDto = customersQuery
                 .ToList()
                 .Select(Mapper.Map<Customer, CustomerDto>);
+            return Ok(customersDto);
         }
 
         //Get api/cutomers/1

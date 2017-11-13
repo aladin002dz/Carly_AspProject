@@ -24,5 +24,7 @@ namespace Carly.Models
         [Display(Name = "Number Available")]
         [CarsNumberValidation]
         public int NumberAvailable { get; set; }
+
+        public int NumberInStock { get; set; }
     }
 }

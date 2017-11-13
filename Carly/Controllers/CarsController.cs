@@ -82,7 +82,7 @@ namespace Carly.Controllers
             return View(car);
         }
 
-
+        [Authorize(Roles = RoleName.CanManageCars)]
         public ActionResult Edit(int id)
         {
             var car = _context.Cars.Include(c => c.Manufacturer).ToList().SingleOrDefault(c => c.Id == id);

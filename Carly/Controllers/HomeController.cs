@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace Carly.Controllers
 {
     [AllowAnonymous]
+    [OutputCache(Duration = 0, VaryByParam = "*", NoStore = true)]
     public class HomeController : Controller
     {
         public ActionResult Index()

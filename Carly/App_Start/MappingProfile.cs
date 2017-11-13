@@ -16,6 +16,8 @@ namespace Carly.App_Start
             Mapper.CreateMap<Car, CarDto>();
             Mapper.CreateMap<MembershipType, MembershipTypeDto>();
             Mapper.CreateMap<Manufacturer, ManufacturerDto>();
+            Mapper.CreateMap<Rental, NewRentalDto>();
+            Mapper.CreateMap<NewRentalDto, Rental>();
 
             Mapper.CreateMap<CustomerDto, Customer>()
                 .ForMember(c => c.Id, opt => opt.Ignore());
