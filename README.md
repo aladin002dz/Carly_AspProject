@@ -17,10 +17,14 @@ public DbSet<BankAccount> BankAccounts { get; set; }
 ```
 
 in Controller file:    
+```
 private ApplicationDbContext _context = new ApplicationDbContext();  
+```
 
-eg: adding record to table   
+eg: adding record to table  
+```
 BankAccount bankAccount = new BankAccount();  
 ...  
 _context.BankAccounts.Add(bankAccount);  
-_context.SaveChanges();   
+_context.SaveChanges();  
+```
