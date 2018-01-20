@@ -1,6 +1,7 @@
 # Carly_AspProject ( A Complete Real world ASP MVC WebApp)
 
 ### Work with EntityFramework code first:
+#### in package manager console:  
 ```
 > enable-migrations
 ```
@@ -16,7 +17,7 @@ public DbSet<BankAccount> BankAccounts { get; set; }
 > update-database
 ```
 
-in Controller file:    
+#### in Controller file:    
 ```
 private ApplicationDbContext _context = new ApplicationDbContext();  
 ```
